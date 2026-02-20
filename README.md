@@ -27,6 +27,18 @@ The dataset contains:
 
 ---
 
+## ⚠️ Dataset Note
+
+The dataset is not included in this repository due to GitHub file size limitations (files larger than 100MB cannot be pushed).  
+
+Please download the **Household Electric Power Consumption Dataset** manually from the UCI Machine Learning Repository and place the file inside the `data/` folder before running the notebook.
+
+Expected file path:
+
+data/household_power_consumption.txt
+
+---
+
 ## 🚀 Project Goals
 
 - Perform data cleaning and preprocessing
