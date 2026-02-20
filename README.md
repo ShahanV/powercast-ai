@@ -53,8 +53,9 @@ data/household_power_consumption.txt
 
 - Repository setup
 - Dataset download and loading
+- Dataset exploration
 - Datetime conversion
-- Initial time series visualization
+- Initial visualization
 - Missing value analysis
 
 ---
