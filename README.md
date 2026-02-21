@@ -71,6 +71,17 @@ data/household_power_consumption.txt
 
 ---
 
+## 📅 Day 3 Progress
+
+- Installed and implemented Prophet forecasting model
+- Trained model on historical daily energy data
+- Generated 30-day future forecast
+- Visualized predictions with confidence intervals
+- Evaluated model using MAE and RMSE
+- Compared actual vs predicted energy consumption
+
+---
+
 ## 🛠 Tech Stack
 
 - Python
