@@ -60,6 +60,17 @@ data/household_power_consumption.txt
 
 ---
 
+## 📅 Day 2 Progress
+
+- Handled missing values using forward fill
+- Resampled data to daily averages
+- Performed monthly trend analysis
+- Applied rolling mean for smoothing
+- Created train-test split (last 30 days as test set)
+- Prepared dataset in Prophet format (ds, y)
+
+---
+
 ## 🛠 Tech Stack
 
 - Python
