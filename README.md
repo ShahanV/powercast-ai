@@ -82,6 +82,16 @@ data/household_power_consumption.txt
 
 ---
 
+## 📅 Day 4 Progress
+
+- Implemented ARIMA model for time-series forecasting
+- Generated 30-day ARIMA forecast
+- Evaluated ARIMA using MAE and RMSE
+- Compared Prophet vs ARIMA performance
+- Selected Prophet as the better-performing model
+
+---
+
 ## 🛠 Tech Stack
 
 - Python
