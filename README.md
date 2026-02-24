@@ -92,10 +92,22 @@ data/household_power_consumption.txt
 
 ---
 
+## 🖥 Running the Dashboard
+
+A Streamlit dashboard is available in the `app/` folder.  
+It includes a **User Feedback** form so you can rate forecast quality and leave comments.
+
+```bash
+pip install -r requirements.txt
+streamlit run app/app.py
+```
+
+---
+
 ## 🛠 Tech Stack
 
 - Python
 - Pandas
 - Matplotlib
+- Streamlit
 - Prophet (planned)
-- Streamlit (planned)
