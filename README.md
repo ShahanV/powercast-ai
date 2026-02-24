@@ -95,17 +95,11 @@ data/household_power_consumption.txt
 ## 📅 Day 5 Progress
 
 - Stored baseline Prophet performance metrics
-
 - Tested multiplicative seasonality configuration
-
 - Tuned changepoint prior scale parameter
-
 - Added explicit yearly and weekly seasonality
-
 - Evaluated all configurations using MAE and RMSE
-
 - Compared tuned models against baseline
-
 - Selected multiplicative seasonality as the final optimized model
 
 ---
