@@ -104,6 +104,17 @@ data/household_power_consumption.txt
 
 ---
 
+## 📅 Day 6 Progress
+
+- Built interactive Streamlit dashboard
+- Integrated optimized Prophet model
+- Added forecast days slider
+- Displayed live forecast visualization
+- Showed MAE and RMSE in UI
+- Added forecast CSV download functionality
+
+---
+
 ## Tech Stack
 
 - Python
