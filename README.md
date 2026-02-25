@@ -104,7 +104,7 @@ data/household_power_consumption.txt
 
 ---
 
-## 📅 Day 6 Progress
+## Day 6 Progress
 
 - Built interactive Streamlit dashboard
 - Integrated optimized Prophet model
