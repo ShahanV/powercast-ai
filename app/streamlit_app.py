@@ -25,3 +25,9 @@ def load_data():
 data = load_data()
 
 forecast_days = st.slider("Select number of days to forecast:", 7, 60, 30)
+
+model = Prophet(seasonality_mode='multiplicative')
+model.fit(data)
+
+future = model.make_future_dataframe(periods=forecast_days)
+forecast = model.predict(future)
