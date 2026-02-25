@@ -23,3 +23,5 @@ def load_data():
     return prophet_df
 
 data = load_data()
+
+forecast_days = st.slider("Select number of days to forecast:", 7, 60, 30)
