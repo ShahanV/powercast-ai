@@ -31,3 +31,6 @@ model.fit(data)
 
 future = model.make_future_dataframe(periods=forecast_days)
 forecast = model.predict(future)
+
+fig1 = model.plot(forecast)
+st.pyplot(fig1)
