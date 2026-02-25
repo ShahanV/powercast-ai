@@ -55,3 +55,11 @@ rmse = np.sqrt(mean_squared_error(actual, predicted))
 st.write("### Model Performance")
 st.write(f"MAE: {mae:.4f}")
 st.write(f"RMSE: {rmse:.4f}")
+
+forecast_output = forecast[['ds', 'yhat']]
+st.download_button(
+    label="Download Forecast CSV",
+    data=forecast_output.to_csv(index=False),
+    file_name='forecast.csv',
+    mime='text/csv'
+)
