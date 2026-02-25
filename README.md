@@ -1,10 +1,10 @@
-# PowerCast AI 🔋
+# PowerCast AI
 
 PowerCast AI is a time-series forecasting project where I am building a machine learning model to predict future energy consumption using historical household electricity usage data. The goal of this project is to understand consumption patterns and develop an AI-based forecasting system that can help in smarter energy planning.
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
 Energy consumption forecasting is important for efficient power management, load balancing, and cost optimization. 
 
@@ -16,7 +16,7 @@ The objective of this project is to:
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 The project uses the **Household Electric Power Consumption Dataset** from the UCI Machine Learning Repository.
 
@@ -27,7 +27,7 @@ The dataset contains:
 
 ---
 
-## ⚠️ Dataset Note
+## Dataset Note
 
 The dataset is not included in this repository due to GitHub file size limitations (files larger than 100MB cannot be pushed).  
 
@@ -39,7 +39,7 @@ data/household_power_consumption.txt
 
 ---
 
-## 🚀 Project Goals
+## Project Goals
 
 - Perform data cleaning and preprocessing
 - Conduct exploratory data analysis (EDA)
@@ -49,7 +49,7 @@ data/household_power_consumption.txt
 
 ---
 
-## 📅 Day 1 Progress
+## Day 1 Progress
 
 - Repository setup
 - Dataset download and loading
@@ -60,7 +60,7 @@ data/household_power_consumption.txt
 
 ---
 
-## 📅 Day 2 Progress
+## Day 2 Progress
 
 - Handled missing values using forward fill
 - Resampled data to daily averages
@@ -71,7 +71,7 @@ data/household_power_consumption.txt
 
 ---
 
-## 📅 Day 3 Progress
+## Day 3 Progress
 
 - Installed and implemented Prophet forecasting model
 - Trained model on historical daily energy data
@@ -82,7 +82,7 @@ data/household_power_consumption.txt
 
 ---
 
-## 📅 Day 4 Progress
+## Day 4 Progress
 
 - Implemented ARIMA model for time-series forecasting
 - Generated 30-day ARIMA forecast
@@ -92,7 +92,7 @@ data/household_power_consumption.txt
 
 ---
 
-## 📅 Day 5 Progress
+## Day 5 Progress
 
 - Stored baseline Prophet performance metrics
 - Tested multiplicative seasonality configuration
@@ -104,7 +104,7 @@ data/household_power_consumption.txt
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - Python
 - Pandas
