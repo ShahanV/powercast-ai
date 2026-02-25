@@ -34,3 +34,24 @@ forecast = model.predict(future)
 
 fig1 = model.plot(forecast)
 st.pyplot(fig1)
+
+train = data[:-30]
+test = data[-30:]
+
+model_eval = Prophet(seasonality_mode='multiplicative')
+model_eval.fit(train)
+
+future_eval = model_eval.make_future_dataframe(periods=30)
+forecast_eval = model_eval.predict(future_eval)
+
+forecast_test = forecast_eval[['ds','yhat']].tail(30)
+
+actual = test['y'].values
+predicted = forecast_test['yhat'].values
+
+mae = mean_absolute_error(actual, predicted)
+rmse = np.sqrt(mean_squared_error(actual, predicted))
+
+st.write("### Model Performance")
+st.write(f"MAE: {mae:.4f}")
+st.write(f"RMSE: {rmse:.4f}")
