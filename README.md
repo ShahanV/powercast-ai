@@ -115,6 +115,18 @@ data/household_power_consumption.txt
 
 ---
 
+## Day 7 Progress
+
+- Serialized the final optimized Prophet model using joblib
+- Integrated the pre-trained model into the Streamlit dashboard
+- Removed retraining from the application for faster inference
+- Displayed forecast results directly in the dashboard with confidence intervals
+- Improved UI layout and organized sections for better clarity
+- Finalized project structure for submission
+- Prepared application for demo and deployment
+
+---
+
 ## Tech Stack
 
 - Python
