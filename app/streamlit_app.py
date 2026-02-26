@@ -1,15 +1,19 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-from prophet import Prophet
+import joblib
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import numpy as np
 
+st.set_page_config(page_title="PowerCast AI", layout="wide")
+
 st.title("🔋 PowerCast AI")
 st.subheader("Energy Consumption Forecasting Dashboard")
-
 st.write("Forecast future energy consumption using optimized Prophet model.")
 
+# -------------------------------------------------
+# Load Data
+# -------------------------------------------------
 @st.cache_data
 def load_data():
     df = pd.read_csv("data/household_power_consumption.txt", sep=';', low_memory=False)
@@ -24,10 +28,21 @@ def load_data():
 
 data = load_data()
 
-forecast_days = st.slider("Select number of days to forecast:", 7, 60, 30)
+# -------------------------------------------------
+# Load Saved Model
+# -------------------------------------------------
+@st.cache_resource
+def load_model():
+    return joblib.load("model/powercast_prophet_model.pkl")
 
-model = Prophet(seasonality_mode='multiplicative')
-model.fit(data)
+model = load_model()
+
+# -------------------------------------------------
+# Forecast Section
+# -------------------------------------------------
+st.markdown("## 📈 Generate Forecast")
+
+forecast_days = st.slider("Select number of days to forecast:", 7, 60, 30)
 
 future = model.make_future_dataframe(periods=forecast_days)
 forecast = model.predict(future)
@@ -35,16 +50,29 @@ forecast = model.predict(future)
 fig1 = model.plot(forecast)
 st.pyplot(fig1)
 
+# -------------------------------------------------
+# Forecast Table Display
+# -------------------------------------------------
+st.markdown("## 📊 Forecasted Energy Consumption")
+
+forecast_output = forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(forecast_days)
+
+forecast_output = forecast_output.round(3)
+
+st.dataframe(forecast_output, use_container_width=True)
+
+# -------------------------------------------------
+# Evaluation Section
+# -------------------------------------------------
+st.markdown("## 📏 Model Performance")
+
 train = data[:-30]
 test = data[-30:]
 
-model_eval = Prophet(seasonality_mode='multiplicative')
-model_eval.fit(train)
+future_eval = model.make_future_dataframe(periods=30)
+forecast_eval = model.predict(future_eval)
 
-future_eval = model_eval.make_future_dataframe(periods=30)
-forecast_eval = model_eval.predict(future_eval)
-
-forecast_test = forecast_eval[['ds','yhat']].tail(30)
+forecast_test = forecast_eval[['ds', 'yhat']].tail(30)
 
 actual = test['y'].values
 predicted = forecast_test['yhat'].values
@@ -52,14 +80,30 @@ predicted = forecast_test['yhat'].values
 mae = mean_absolute_error(actual, predicted)
 rmse = np.sqrt(mean_squared_error(actual, predicted))
 
-st.write("### Model Performance")
-st.write(f"MAE: {mae:.4f}")
-st.write(f"RMSE: {rmse:.4f}")
+col1, col2 = st.columns(2)
 
-forecast_output = forecast[['ds', 'yhat']]
+with col1:
+    st.metric("MAE", f"{mae:.4f}")
+
+with col2:
+    st.metric("RMSE", f"{rmse:.4f}")
+
+# -------------------------------------------------
+# Download Forecast
+# -------------------------------------------------
+st.markdown("## 💾 Export Forecast")
+
 st.download_button(
     label="Download Forecast CSV",
     data=forecast_output.to_csv(index=False),
     file_name='forecast.csv',
     mime='text/csv'
 )
+
+# -------------------------------------------------
+# Sidebar Info
+# -------------------------------------------------
+st.sidebar.markdown("## ℹ️ Model Info")
+st.sidebar.write("Final Model: Prophet (Multiplicative Seasonality)")
+st.sidebar.write("Selected after benchmarking and hyperparameter tuning.")
+st.sidebar.write("Trained on daily aggregated household energy consumption data.")
